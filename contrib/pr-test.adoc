@@ -34,7 +34,7 @@ Then check out the branch containing the Pull Request Changes.
 $ git checkout oybed/docker-39
 ----
 
-At this point, you have 
+At this point, you have
 
 Check out the branch that represents _your_ Pull Request
 [source,bash]
@@ -47,3 +47,7 @@ Then _rebase_ your branch on top of the other Pull Request's branch:
 ----
 git rebase oybed/docker-39
 ----
+
+== Next
+
+* link:./pr-against-pr{outfilesuffix}[Contributing to an Open Pull Request]

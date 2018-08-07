@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "We are the Red Hat CoPs!"
+date:   2018-07-06 23:08:22 -0400
+categories: jekyll update
+---
+
+Welcome, glad to have you! This first post is an overview of the Red Hat CoPs.
+
+> Red Hat Technical Communities of Practice (CoPs) are internal, global communities comprised of all roles across Red Hat collaborating and sharing best practices to promote adoption and enablement of Red Hat products and solutions, while ensuring customer excellence throughout delivery.
