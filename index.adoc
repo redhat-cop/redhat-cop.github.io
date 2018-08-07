@@ -1,12 +1,9 @@
-= Welcome to the Red Hat Communities of Practice
+---
+# You don't need to edit this file, it's empty on purpose.
+# Edit theme's home layout instead if you wanna make some changes
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+layout: home
+list_title: Recent Blog Posts
+---
 
 This wiki site outlines the workflows for contributing to our various Community of Practice projects.
-
-== Git Flow Practices
-
-We follow a fairly typical link:https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow[fork-based git flow] for Open Source projects, but we'll outline some of the common actions in this wiki, as many contributors may be new to Git.
-
-1. link:./local-setup{outfilesuffix}[Local Setup]
-2. link:./pr{outfilesuffix}[Contributing Code (Opening a Pull Request)]
-3. link:./pr-test{outfilesuffix}[Testing a Pull Request]
-4. link:./pr-against-pr{outfilesuffix}[Opening a Pull Request Against A Pull Request]
