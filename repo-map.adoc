@@ -1,0 +1,35 @@
+---
+layout: page
+title: Index of CoP Git Repositories
+permalink: /repos/
+---
+:cop-org: https://github.com/redhat-cop
+:toc: macro
+toc::[]
+
+== Containers & PaaS
+
+* **Cross-Functional Audience**
+** link:{cop-org}/openshift-toolkit.git[OpenShift Toolkit]
++
+A collection of starter samples to help stand up and manage OpenShift, if you are new to the CoP and are not sure where to look first, start here
+** link:{cop-org}/openshift-applier.git[OpenShift Applier]
++
+An _Infrastructure as Code_ framework for managing OpenShift Resources
+* **Developer Focused**
+** link:{cop-org}/containers-quickstarts.git[Containers Quickstarts]
++
+A collection of container images for use with OpenShift, including S2I base images, stateful apps, builder images, and tools
+** link:{cop-org}/container-pipelines.git[Container Pipelines]
++
+A set of sample Jenkins pipelines that run on and deploy to OpenShift
+** link:{cop-org}/pipeline-library.git[OpenShift Pipeline Library]
++
+A Jenkins Global Library containing common methods for pipelines in OpenShift
+* **Operator Focused**
+** link:{cop-org}/casl-ansible.git[CASL Ansible]
++
+Automated provisioning and management of OpenShift Clusters
+** link:{cop-org}/infra-ansible.git[Infra Ansible]
++
+Automated provisioning and management of various Red Hat and OpenShift infrastructure components
