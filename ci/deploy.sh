@@ -26,7 +26,7 @@ cd ..
 # Clean out existing contents
 rm -rf out/**/* || exit 0
 
-cp -r ../_site/* .
+cp -r /home/travis/build/redhat-cop/redhat-cop.github.io/_site/* .
 
 # Now let's go have some fun with the cloned repo
 cd out
