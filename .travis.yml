@@ -19,7 +19,7 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_4141ce77cc08_key -iv $encrypted_4141ce77cc08_iv
   -in redhat-cop-deploy-key.enc -out redhat-cop-deploy-key -d
 before_script:
- - chmod +x ./script/*
+ - chmod +x ./ci/*
  - gem --version
  - gem install bundler
 script:
