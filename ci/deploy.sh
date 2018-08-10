@@ -21,15 +21,13 @@ SHA=`git rev-parse --verify HEAD`
 git clone $REPO out
 cd out
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
-cd ..
 
 # Clean out existing contents
-rm -rf out/**/* || exit 0
+rm -rf ./**/* || exit 0
 
 cp -r /home/travis/build/redhat-cop/redhat-cop.github.io/_site/* .
 
 # Now let's go have some fun with the cloned repo
-cd out
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 
