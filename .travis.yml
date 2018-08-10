@@ -24,7 +24,7 @@ before_script:
  - gem install bundler
 script:
 - "./ci/build.sh"
-- "./cd/deploy.sh"
+- "./ci/deploy.sh"
 
 addons:
   apt:
