@@ -46,11 +46,11 @@ git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 # Decrypt deploy key
 openssl aes-256-cbc -K ${ENCRYPTED_KEY} -iv ${ENCRYPTED_VAL} \
-  -in redhat-cop-deploy-key.enc -out redhat-cop-deploy-key -d
+  -in $DEPLOY_KEY.enc -out $DEPLOY_KEY -d
 
-chmod 600 ../$DEPLOY_KEY
+chmod 600 $DEPLOY_KEY
 eval `ssh-agent -s`
-ssh-add ../$DEPLOY_KEY
+ssh-add $DEPLOY_KEY
 
 # Now that we're all set up, we can push.
 git push $SSH_REPO $TARGET_BRANCH
