@@ -4,6 +4,8 @@ set -e # Exit with nonzero exit code if anything fails
 SOURCE_BRANCH="jekyll"
 TARGET_BRANCH="master"
 DEPLOY_KEY="redhat-cop-deploy-key"
+ENCRYPTED_KEY=${encrypted_4141ce77cc08_key}
+ENCRYPTED_VAL=${encrypted_4141ce77cc08_iv}
 
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
 if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]; then
@@ -41,6 +43,10 @@ fi
 # The delta will show diffs between new and old versions.
 git add -A .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
+
+# Decrypt deploy key
+openssl aes-256-cbc -K ${ENCRYPTED_KEY} -iv ${ENCRYPTED_VAL} \
+  -in redhat-cop-deploy-key.enc -out redhat-cop-deploy-key -d
 
 chmod 600 ../$DEPLOY_KEY
 eval `ssh-agent -s`
