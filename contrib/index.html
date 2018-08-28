@@ -9,13 +9,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="We are a community of Red Hatters committed to levelling up our skillsets and the skillsets of our partners and customers through open source practices." />
 <meta property="og:description" content="We are a community of Red Hatters committed to levelling up our skillsets and the skillsets of our partners and customers through open source practices." />
-<link rel="canonical" href="https://redhat-cop.github.io/contrib/" />
-<meta property="og:url" content="https://redhat-cop.github.io/contrib/" />
+<link rel="canonical" href="/contrib/" />
+<meta property="og:url" content="/contrib/" />
 <meta property="og:site_name" content="Red Hat Communities of Practice" />
 <script type="application/ld+json">
-{"description":"We are a community of Red Hatters committed to levelling up our skillsets and the skillsets of our partners and customers through open source practices.","@type":"WebPage","headline":"Contribution Guidelines","url":"https://redhat-cop.github.io/contrib/","@context":"http://schema.org"}</script>
+{"description":"We are a community of Red Hatters committed to levelling up our skillsets and the skillsets of our partners and customers through open source practices.","@type":"WebPage","url":"/contrib/","headline":"Contribution Guidelines","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://redhat-cop.github.io/feed.xml" title="Red Hat Communities of Practice" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Red Hat Communities of Practice" /></head>
 <body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/">Red Hat Communities of Practice</a><nav class="site-nav">
@@ -40,8 +40,59 @@
   </header>
 
   <div class="post-content">
-    <div class="paragraph">
-<p>We follow a fairly typical <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow">fork-based git flow</a> for Open Source projects, but we&#8217;ll outline some of the common actions in this wiki, as many contributors may be new to Git.</p>
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Contributions from the community play an important role in the assets associated with the Red Hat Communities of Practice (CoP). One of these sources of content is through source code repositories hosted on GitHub within the <a href="https://github.com/redhat-cop">redhat-cop</a> organization. These repositories have a direct relationship to one or more tracks within a CoP or across multiple CoP’s and help drive the overall mission of the CoP program.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-and-committers">Contributions and Committers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All members of the Open Source Community are welcome to contribute to the Red Hat Communities of Practice. Contributions to CoP source code repositories can be received through a variety of methods including source code contributions, reviews and issue creation.</p>
+</div>
+<div class="paragraph">
+<p>Individuals who are interested in directly affecting repository content may request the privilege in becoming a committer in one or more CoP sponsored repository for which they have made contributions in the past. Committers play an important role within a CoP and act as an extension of the core team to help facilitate key initiatives that benefit the entire community as a whole. These individuals may request commit access or be nominated by another member of the community. All requests for committer status will be reviewed by members of the Community of Practice along with the track lead(s) for which the repository is associated.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="features-and-roadmap">Features and Roadmap</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each repository within the Red Hat Communities of Practice has been created for a specific reason. It is important that contributors, especially committers, understand the overall purpose and vision for the repository and to help facilitate achieving these goals.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="understanding-our-workflow">Understanding Our Workflow</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>While there are multiple development styles, the Red Hat Communities of Practice typically follows a <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow">fork-based git flow</a> that is common in many Open Source projects. At a high level, this style consists of the following actions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fork the repository for which you want to make a contribution</p>
+</li>
+<li>
+<p>Create a separate branch for the work</p>
+</li>
+<li>
+<p>Create a pull request back to the originating repository being sure to follow any specific guidelines outlined in the repository</p>
+</li>
+<li>
+<p>Adjust the work based on comments received</p>
+</li>
+<li>
+<p>Await the merge by another committer</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following guides are available to learn more about this process and start contributing:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -58,6 +109,90 @@
 <p><a href="./pr-against-pr.html">Opening a Pull Request Against A Pull Request</a></p>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="general-guidence">General Guidence</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When making a contribution to the repositories of the Red Hat Communities of Practice, try to utilize the following set of guidelines outlined in this section. Committers should adhere to these practices as they attempt to address many (but not all) of the primary concerns associated with open source repositories and project management:</p>
+</div>
+<div class="paragraph">
+<p>Do:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Squash commits whenever possible</p>
+</li>
+<li>
+<p>Engage with the community and with contributors</p>
+</li>
+<li>
+<p>Write tests when applicable</p>
+</li>
+<li>
+<p>Discuss with other committers whenever you are unsure of something</p>
+</li>
+<li>
+<p>Create documentation, especially for new features and functionality</p>
+</li>
+<li>
+<p>Review existing content in order to avoid overwriting existing content</p>
+</li>
+<li>
+<p>Keep it simple</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Commit directly to the master branch</p>
+</li>
+<li>
+<p>Merge pull requests you have authored</p>
+</li>
+<li>
+<p>Break existing functionality</p>
+</li>
+<li>
+<p>Ignore requests for assistance</p>
+</li>
+<li>
+<p>Go against established repository and CoP norms</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="points-of-contacts">Points of Contacts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following individuals have a vested interest in the overall health and stability of the Red Hat Communities of Practice. They may be used as contact points for any inquiries related to CoP repositories, contributing, or the process of becoming a committer:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Andrew Block (<a href="https://github.com/sabre1041">@sabre1041</a>)</p>
+</li>
+<li>
+<p>Eric Sauer (<a href="https://github.com/etsauer">@etsauer</a>)</p>
+</li>
+<li>
+<p>Øystein Bedin (<a href="https://github.com/oybed">@oybed</a>)</p>
+</li>
+<li>
+<p>Jared Burck (<a href="https://github.com/JaredBurck">@JaredBurck</a>)</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
   </div>
 
