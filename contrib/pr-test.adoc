@@ -1,0 +1,53 @@
+= Testing a Pull Request
+
+Here we walk through the process contributors should follow when testing open _Pull Requests_.
+
+== Testing a Single Pull Request
+
+First thing you need to do is set up the Pull Request author's fork as a _remote_ in your local repository.
+
+[source,bash]
+----
+git remote add oybed git@github.com:oybed/casl-ansible.git
+----
+
+Then fetch the latest changes from that remote
+
+[source,bash]
+----
+$ git fetch oybed
+remote: Counting objects: 298, done.
+remote: Compressing objects: 100% (58/58), done.
+remote: Total 298 (delta 163), reused 213 (delta 153), pack-reused 75
+Receiving objects: 100% (298/298), 38.23 KiB | 1.53 MiB/s, done.
+Resolving deltas: 100% (173/173), completed with 56 local objects.
+From https://github.com/oybed/casl-ansible
+...
+ * [new branch]      docker-39      -> oybed/docker-39
+...
+----
+
+Then check out the branch containing the Pull Request Changes.
+
+[source,bash]
+----
+$ git checkout oybed/docker-39
+----
+
+At this point, you have
+
+Check out the branch that represents _your_ Pull Request
+[source,bash]
+----
+git checkout gcp-3.9
+----
+
+Then _rebase_ your branch on top of the other Pull Request's branch:
+[source,bash]
+----
+git rebase oybed/docker-39
+----
+
+== Next
+
+* link:./pr-against-pr{outfilesuffix}[Contributing to an Open Pull Request]
