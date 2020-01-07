@@ -8,4 +8,8 @@ list_title: Recent Blog Posts
 
 This wiki site outlines the workflows for contributing to our various Community of Practice projects.
 
-link:./repos/[Red Hat CoP Repository Map]
+**Site Contents**
+
+* [Red Hat CoP Repository Map](./repos/)
+* [Repository Contribution Guidelines](./contrib/)
+* [How to implement continuous integration for redhat-cop repositories](./ci/)
