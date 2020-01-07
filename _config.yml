@@ -24,7 +24,7 @@ url: "https://redhat-cop.github.io" # the base hostname & protocol for your site
 github_username:  redhat-cop
 header_pages:
 #  - about.md
-  - contrib/index.adoc
+  - contrib/index.md
 
 # Build settings
 markdown: kramdown
