@@ -30,8 +30,10 @@ jobs:
       uses: elgohr/Publish-Docker-Github-Action@2.11
       with:
         name: redhat-cop/myimage
+        {% raw %}
         username: ${{ secrets.QUAY_USERNAME }}
         password: ${{ secrets.QUAY_PASSWORD }}
+        {% endraw %}
         registry: quay.io
         dockerfile: container-images/myimage/Dockerfile
         tag_names: true
