@@ -19,22 +19,51 @@ We use [GitHub Actions](https://github.com/features/actions) for many continuous
 The contents of the file should look like this:
 
 ```
+{% raw %}
 name: myimage-publish-workflow
-on: [push]
+on:
+  push:
+    branches:
+    # Build latest off of master
+    - master
+    tags:
+    # Version tag glob match, start 'v' then a number followed by anything
+    - 'v[0-9]*'
 jobs:
   build:
+    # Only build on redhat-cop repo, do not attempt to build on forks
+    if: github.repository == 'redhat-cop/myrepo'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Publish My Image to Quay
-      uses: elgohr/Publish-Docker-Github-Action@2.11
+    - name: Get image tags
+      id: image_tags
+      run: |
+        echo -n ::set-output name=IMAGE_TAGS::
+        # Tags build from master as latest
+        if [ "${GITHUB_REF}" == 'refs/heads/master' ]; then
+            echo latest
+        # Match git tags to image tags
+        elif [ "${GITHUB_REF:0:10}" == 'refs/tags/' ]; then
+            echo "${GITHUB_REF:10}"
+        # Otherwise, best guess... branch name
+        else
+            echo "${GITHUB_REF/*\//}"
+        fi
+    - name: Build and publish image to Quay
+      uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: redhat-cop/myimage
+        # If quay.io image repository name matches github repository name, then
+        # we can just use the variable, otherwise the name will need to be set
+        # explicitly.
+        name: ${{ github.repository }}
         username: ${{ secrets.QUAY_USERNAME }}
         password: ${{ secrets.QUAY_PASSWORD }}
         registry: quay.io
-        dockerfile: container-images/myimage/Dockerfile
-        tag_names: true
+        tags: ${{ steps.image_tags.outputs.IMAGE_TAGS }}
+        dockerfile: build/path/Dockerfile
+        context: build/path
+{% endraw %}
 ```
 
 From there, you can follow our [standard Pull Request](/contrib/) process to get your workflow added to the repo.
