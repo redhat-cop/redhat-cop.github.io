@@ -93,15 +93,21 @@ $ git commit -m"Adding README doc to this repo"
 
 # Push your new branch to your fork
 $ git push -u origin add-readme
-Counting objects: 3, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 325 bytes | 325.00 KiB/s, done.
-Total 3 (delta 1), reused 0 (delta 0)
-remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-To github.com:etsauer/spring-rest.git
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 1.04 KiB | 534.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+remote: 
+remote: Create a pull request for 'add-readme' on GitHub by visiting:
+remote:      https://github.com/etsauer/redhat-cop.github.io/pull/new/add-readme
+remote: 
+To github.com:etsauer/redhat-cop.github.io.git
  * [new branch]      add-readme -> add-readme
-Branch add-readme set up to track remote branch add-readme from origin.
+Branch 'add-readme' set up to track remote branch 'add-readme' from 'origin'.
+
 
 ```
 
@@ -155,7 +161,33 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
+Now, let's add our updated file to the proposed commit:
 
+```
+$ git add contrib/pr.md
+# And just to show our work...
+$ git status
+On branch add-readme
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   contrib/pr.md
+```
+
+Now let's commit our change.
+
+```
+$ git commit -m"Enhance the PR guide to include instructions for updating an existing PR"
+[add-readme 449f742] Enhance the PR guide to include instructions for updating an existing PR
+ Committer: Eric Sauer <esauer@redhat.com>
+
+ 1 file changed, 31 insertions(+), 1 deletion(-)
+```
+
+And push our code. This time, we do not need to say `git push -u origin add-readme`, as we have already pushed our branch before, and our local git repo is configured to track changes to that remote branch. Now we can simply `git push`.
+
+```
+git push
+```
 
 ### Rebasing
 
