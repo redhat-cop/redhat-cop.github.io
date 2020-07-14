@@ -186,12 +186,49 @@ $ git commit -m"Enhance the PR guide to include instructions for updating an exi
 And push our code. This time, we do not need to say `git push -u origin add-readme`, as we have already pushed our branch before, and our local git repo is configured to track changes to that remote branch. Now we can simply `git push`.
 
 ```
-git push
+$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 1.02 KiB | 1.02 MiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To github.com:etsauer/redhat-cop.github.io.git
+   5bf4a4b..79672ee  add-readme -> add-readme
 ```
+
+Your Pull Request will now be updated with the additional changes you've made, and you can ask the reviewers to take another look.
 
 ### Rebasing
 
-TBD
+If a pull request stays open for long enough, or a repository has multiple pull requests being opened and reviewed at a time, it is highly likely that another change being merged will result in your PR having merge conflicts with the updated master branch.
+
+![Merge Conflicts in a Pull Request](/images/pr-conflict.png)
+
+When this happens, you will need to resolve this conflict by updating your branch with the latest changes to the main branch. This can be done via a _rebase_. A rebase looks like this.
+
+Ensure your working copy is clean.
+```
+$ git status
+On branch add-reamde
+Your branch is up to date with 'upstream/master'.
+
+nothing to commit, working tree clean
+$
+```
+
+Then fetch the latest changes from the upstream repository.
+```
+$ git fetch upstream
+```
+
+Now rebase your changes on top of upstream's master branch
+```
+$ git rebase upstream/master
+```
+
+Now check `git status` again. In many cases this will resolve your issue, and if your `git status` is clean, then you can simply `git push` again. However, in some cases, your `git status` will still show that there are files in conflict. In that case, you must open the files, and see where git has marked that there are conflicting changes and resolve them. Follow the instructions that your `git status` shows in order to do this.
 
 ## Next
 
