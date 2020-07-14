@@ -125,7 +125,37 @@ Pull requests are rarely correct the first time, and having multiple pull reques
 
 ### Making more Changes
 
-TBD
+Code changes are rarely ready to merge on the first try. Typically one or more reviewers will look it over and make suggestions, or automated testing will catch some errors, or code styling issues. Once that happens, it will then be necessary to make changes and add them to the existing Pull Request. This process is actually as simple as commiting additional changes to the same feature branch, and pushing that branch. Here are the steps to do so.
+
+**NOTE: Please do not close a PR because updates were requested. We like to have record of the conversations that were had around a change.**
+
+First, let's check the current status of our feature branch:
+
+```
+$ git status
+On branch add-reamde
+Your branch is up to date with 'upstream/master'.
+
+nothing to commit, working tree clean
+$
+```
+
+Now, let's make our additional changes, as requested in the PR. In this case, there was an ask to enhance additional documentation. Once complete, the `git status` output will look like this:
+
+```
+$ git status
+On branch add-readme
+Your branch is up to date with 'upstream/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   contrib/pr.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+
 
 ### Rebasing
 
