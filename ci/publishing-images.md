@@ -9,8 +9,8 @@ Many of our repositories, such as [Containers-Quickstarts](https://github.com/re
 In order to publish images to Quay.io, you'll need the following set up ahead of time:
 
 * A new repository and robot account created in Quay.io, set as a Secret on your repo. You can [open an issue with the CoP Tooling team](https://github.com/redhat-cop/org/issues/new?assignees=&labels=integrations&template=integrations.md&title=) to have this created.
-  * REGISTRY_URI: quay.io
-  * REGISTRY_REPOSITORY: redhat-cop
+  * REGISTRY_SERVER: quay.io
+  * REGISTRY_NAMESPACE: redhat-cop
   * REGISTRY_USERNAME
   * REGISTRY_PASSWORD
 
@@ -18,11 +18,11 @@ In order to publish images to Quay.io, you'll need the following set up ahead of
 
 We use [GitHub Actions](https://github.com/features/actions) for many continuous integration needs, including publishing images. To get started, create a new YAML file in your repo at `.github/workflows/`. The name of the file doesn't matter, but would typically be something like `workflow.yaml`, `main.yaml` or specifically `publish-image.yaml`.
 
-The contents of the file should look like this (this is an example for our rabbitmq image):
+The contents of the file should look like this:
 
 ```
 {% raw %}
-name: rabbitmq-publish
+name: myapp-publish
 on:
   push:
     branches:
@@ -30,12 +30,12 @@ on:
     tags:
       - '*'
     paths:
-      - rabbitmq/version.json
+      - myapp/version.json
 jobs:
   build:
     env:
-      context: rabbitmq
-      image_name: rabbitmq
+      context: myapp
+      image_name: myapp
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -56,15 +56,15 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           path: ${{ env.context }}
-          registry: ${{ secrets.REGISTRY_URI }}
-          repository: ${{ secrets.REGISTRY_REPOSITORY }}/${{ env.image_name }}
+          registry: ${{ secrets.REGISTRY_SERVER }}
+          repository: ${{ secrets.REGISTRY_NAMESPACE }}/${{ env.image_name }}
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
           tags: "${{ steps.image_tags.outputs.IMAGE_TAGS }}"
 {% endraw %}
 ```
 
-The above also requires a `version.json` file in the directory of you code. The content is very simple, `{"version":"v1.0.0"}` and will be used to tag the image. With this file you can tag your image independently of tags on the repository. This can be convenient when you are building multiple images from the same repo, such as containers-quickstarts.
+The above also requires a `version.json` file in the directory of your code. The content is very simple, `{"version":"v1.0.0"}` and will be used to tag the image. With this file you can tag your image independently of tags on the repository. This can be convenient when you are building multiple images from the same repo, such as containers-quickstarts.
 
 From there, you can follow our [standard Pull Request](/contrib/) process to get your workflow added to the repo.
 
@@ -75,16 +75,16 @@ For images that can be built and tested in a standard Docker environment, we can
 Add another workflow file to `.github/workflows/` that looks like the following:
 
 ```
-name: rabbitmq-pr
+name: myapp-pr
 on:
   pull_request:
     paths:
-      - rabbitmq/**
+      - myapp/**
 jobs:
   build:
     env:
-      context: rabbitmq
-      image_name: rabbitmq
+      context: myapp
+      image_name: myapp
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -102,8 +102,8 @@ jobs:
           tags: ${{ steps.check_version.outputs.IMAGE_TAGS }}
       - name: Test image
         run: |
-          echo "Running: docker run --entrypoint 'rabbitmqctl' ${image_name}:${{ steps.check_version.outputs.IMAGE_TAGS }} 'version'"
-          docker run --entrypoint 'rabbitmqctl' ${image_name}:${{ steps.check_version.outputs.IMAGE_TAGS }} 'version'
+          echo "Running: docker run ${image_name}:${{ steps.check_version.outputs.IMAGE_TAGS }} 'version'"
+          docker run ${image_name}:${{ steps.check_version.outputs.IMAGE_TAGS }} 'version'
 ```
 
 From there, you can follow our [standard Pull Request](/contrib/) process to get your workflow added to the repo.
