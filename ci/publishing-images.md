@@ -68,7 +68,8 @@ The above also requires a `version.json` file in the directory of your code. The
 
 From there, you can follow our [standard Pull Request](/contrib/) process to get your workflow added to the repo.
 
-:mag: For security purposes, GitHub does not make secrets accessible to forked repositories. It will therefore not be possible to test workflow code in the context of a Pull Request if the workflow uses secrets. However, you can test the workflow in your own fork by creating the necessary secrets in your forked repo pointing to your own personal registry.
+>:mag: **NOTE**<br />
+>For security purposes, GitHub does not make secrets accessible to forked repositories. It will therefore not be possible to test workflow code in the context of a Pull Request if the workflow uses secrets. However, you can test the workflow in your own fork by creating the necessary secrets in your forked repo pointing to your own personal registry.
 
 ## Add Pre-merge (Pull Request) testing of your image
 
