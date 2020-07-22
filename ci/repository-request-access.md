@@ -1,5 +1,5 @@
 ---
-title: Requesting and Managing CoP Resources
+title: CoP Repositories Request and Access
 ---
 
 The Red Hat Community of Practice makes use of several services to host content, specifically [GitHub](https://github.com/) for source code management and [Quay.io](https://quay.io/) for container images. This guide provide an overview of these tools and how you can make use of them in a self service capacity to request and manage CoP related resources.
