@@ -93,15 +93,21 @@ $ git commit -m"Adding README doc to this repo"
 
 # Push your new branch to your fork
 $ git push -u origin add-readme
-Counting objects: 3, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 325 bytes | 325.00 KiB/s, done.
-Total 3 (delta 1), reused 0 (delta 0)
-remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-To github.com:etsauer/spring-rest.git
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 1.04 KiB | 534.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+remote: 
+remote: Create a pull request for 'add-readme' on GitHub by visiting:
+remote:      https://github.com/etsauer/redhat-cop.github.io/pull/new/add-readme
+remote: 
+To github.com:etsauer/redhat-cop.github.io.git
  * [new branch]      add-readme -> add-readme
-Branch add-readme set up to track remote branch add-readme from origin.
+Branch 'add-readme' set up to track remote branch 'add-readme' from 'origin'.
+
 
 ```
 
@@ -125,11 +131,104 @@ Pull requests are rarely correct the first time, and having multiple pull reques
 
 ### Making more Changes
 
-TBD
+Code changes are rarely ready to merge on the first try. Typically one or more reviewers will look it over and make suggestions, or automated testing will catch some errors, or code styling issues. Once that happens, it will then be necessary to make changes and add them to the existing Pull Request. This process is actually as simple as commiting additional changes to the same feature branch, and pushing that branch. Here are the steps to do so.
+
+**NOTE: Please do not close a PR because updates were requested. We like to have record of the conversations that were had around a change.**
+
+First, let's check the current status of our feature branch:
+
+```
+$ git status
+On branch add-reamde
+Your branch is up to date with 'upstream/master'.
+
+nothing to commit, working tree clean
+$
+```
+
+Now, let's make our additional changes, as requested in the PR. In this case, there was an ask to enhance additional documentation. Once complete, the `git status` output will look like this:
+
+```
+$ git status
+On branch add-readme
+Your branch is up to date with 'upstream/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   contrib/pr.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+Now, let's add our updated file to the proposed commit:
+
+```
+$ git add contrib/pr.md
+# And just to show our work...
+$ git status
+On branch add-readme
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   contrib/pr.md
+```
+
+Now let's commit our change.
+
+```
+$ git commit -m"Enhance the PR guide to include instructions for updating an existing PR"
+[add-readme 449f742] Enhance the PR guide to include instructions for updating an existing PR
+ Committer: Eric Sauer <esauer@redhat.com>
+
+ 1 file changed, 31 insertions(+), 1 deletion(-)
+```
+
+And push our code. This time, we do not need to say `git push -u origin add-readme`, as we have already pushed our branch before, and our local git repo is configured to track changes to that remote branch. Now we can simply `git push`.
+
+```
+$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 1.02 KiB | 1.02 MiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To github.com:etsauer/redhat-cop.github.io.git
+   5bf4a4b..79672ee  add-readme -> add-readme
+```
+
+Your Pull Request will now be updated with the additional changes you've made, and you can ask the reviewers to take another look.
 
 ### Rebasing
 
-TBD
+If a pull request stays open for long enough, or a repository has multiple pull requests being opened and reviewed at a time, it is highly likely that another change being merged will result in your PR having merge conflicts with the updated master branch.
+
+![Merge Conflicts in a Pull Request](/images/pr-conflict.png)
+
+When this happens, you will need to resolve this conflict by updating your branch with the latest changes to the main branch. This can be done via a _rebase_. A rebase looks like this.
+
+Ensure your working copy is clean.
+```
+$ git status
+On branch add-reamde
+Your branch is up to date with 'upstream/master'.
+
+nothing to commit, working tree clean
+$
+```
+
+Then fetch the latest changes from the upstream repository.
+```
+$ git fetch upstream
+```
+
+Now rebase your changes on top of upstream's master branch
+```
+$ git rebase upstream/master
+```
+
+Now check `git status` again. In many cases this will resolve your issue, and if your `git status` is clean, then you can simply `git push` again. However, in some cases, your `git status` will still show that there are files in conflict. In that case, you must open the files, and see where git has marked that there are conflicting changes and resolve them. Follow the instructions that your `git status` shows in order to do this.
 
 ## Next
 
