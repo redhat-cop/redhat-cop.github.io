@@ -63,7 +63,12 @@ orgs:
           ...
 ```
 
-For any requested changes, be sure to follow the steps describe in submitting a [pull request](../contrib/pr.md). 
+For any requested changes, be sure to follow the steps describe in submitting a [pull request](../contrib/pr.md).
+
+----
+**WARNING**
+Given the importance and reliance on automation to manage the CoP, manual modifications (such as team/repository management) should be avoided as it affects the stability of the tooling. 
+---
 
 ## Quay Management
 
@@ -119,3 +124,13 @@ orgs:
 ```
 
 When complete, submit a new Pull Request against the repository as described in submitting a [pull request](../contrib/pr.md).
+
+## Ansible Galaxy
+
+[Ansible Galaxy](https://galaxy.ansible.com/) is a public site for finding, downloading and sharing community content. Collections and roles are organized into [namespace](https://galaxy.ansible.com/docs/contributing/namespaces.html) and a namespace called [redhat_cop](https://galaxy.ansible.com/redhat_cop) is available for use by the CoP to store content.
+
+### Publishing Content to Ansible Galaxy
+
+Content produced by the CoP can be published to Ansible Galaxy and an API key can be provided to aid in the publishing of content. Access can be requested through the [issue request process](https://github.com/redhat-cop/org/issues/new/choose) described earlier.
+
+For repositories hosted on GitHub within the CoP organization, a [Secret](https://docs.github.com/en/rest/reference/actions#secrets) called _ANSIBLE_GALAXY_APIKEY_ can be made available within your repository to use as part of a [GitHub Action workflow](https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows). Be sure to include the desire to leverage this option as part of your request.
