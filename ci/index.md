@@ -6,4 +6,4 @@ This section talks through various continuous integration strategies we employ a
 
 * [Publishing Container Images to Quay.io](./publishing-images.html)
 * [Linting and Testing Helm Charts](./linting-testing-helm-charts.md)
-* [Repository Request and Access](./resource-management.md)
+* [Repository Request and Access](./repository-request-access.md)
