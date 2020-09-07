@@ -1,5 +1,7 @@
 = redhat-cop.github.io
 
+[![Build Status](https://github.com/redhat-cop/redhat-cop.github.io/workflows/redhat-cop.github.io/badge.svg?branch=master)](https://github.com/redhat-cop/redhat-cop.github.io/actions?workflow=build-test-site)
+
 Global site for publishing docs and contribution guidelines for the Red Hat Communities of Practice
 
 == Testing the site
