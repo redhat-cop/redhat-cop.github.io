@@ -34,10 +34,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
+
+      - name: Fetch history
+        run: git fetch --prune --unshallow
     
       - name: Lint Helm charts
-        uses: helm/chart-testing-action@v1.0.0-rc.2
+        uses: helm/chart-testing-action@v1.0.0
         with:
           command: lint
           config: ct.yaml
@@ -58,6 +61,7 @@ keywords: list(str(), required=False)
 sources: list(str(), required=False)
 maintainers: list(include('maintainer'), required=False)
 icon: str(required=False)
+apiVersion: str(required=False)
 engine: str(required=False)
 condition: str(required=False)
 tags: str(required=False)
