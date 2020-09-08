@@ -1,0 +1,21 @@
+name: build-test-site
+
+on: pull_request
+
+jobs:
+  docs-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+      - name: Install dependencies
+        run: |
+          bundle install
+      - name: Build and Test
+        run: |
+          bundle exec jekyll build
+          bundle exec htmlproofer ./_site
