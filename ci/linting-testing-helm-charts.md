@@ -157,9 +157,7 @@ rules:
 Now that we have reviewed each of the files required for ct, let's explore an example.
 
 ## Example
-For this example, we will look at the [Pelorus repo](https://github.com/redhat-cop/pelorus). This repo has two separate workflows under [.github/workflows](https://github.com/redhat-cop/pelorus/tree/master/.github/workflows), one specifically for ct and another for building the app (though both workflows could be combined). Here is an example ct build - https://github.com/redhat-cop/pelorus/runs/894996440?check_suite_focus=true.
-
-Let’s look closely at the Lint task of the [ct example](https://github.com/redhat-cop/pelorus/runs/894996440?check_suite_focus=true). After the workflow clones the source code, the “Lint Helm charts” step begins. When ct detects chart changes, you’ll see a message similar to the following.
+For this example, we will look at the [Pelorus repo](https://github.com/konveyor/pelorus). There is a [Makefile](https://github.com/konveyor/pelorus/blob/master/Makefile) with a dedicated target called `chart-lint`. When ct detects chart changes, you’ll see a message similar to the following.
 
 ```
  Charts to be processed:
