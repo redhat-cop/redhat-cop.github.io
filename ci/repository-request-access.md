@@ -133,4 +133,4 @@ When complete, submit a new Pull Request against the repository as described in 
 
 Content produced by the CoP can be published to Ansible Galaxy and an API key can be provided to aid in the publishing of content. Access can be requested through the [issue request process](https://github.com/redhat-cop/org/issues/new/choose) described earlier.
 
-For repositories hosted on GitHub within the CoP organization, a [Secret](https://docs.github.com/en/rest/reference/actions#secrets) called _ANSIBLE_GALAXY_APIKEY_ can be made available within your repository to use as part of a [GitHub Action workflow](https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows). Be sure to include the desire to leverage this option as part of your request.
+For repositories hosted on GitHub within the CoP organization, a `Secret` called _ANSIBLE_GALAXY_APIKEY_ can be made available within your repository to use as part of a `GitHub Action workflow`. Be sure to include the desire to leverage this option as part of your request.

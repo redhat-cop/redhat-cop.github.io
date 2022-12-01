@@ -22,4 +22,4 @@ jobs:
       - name: Build and Test
         run: |
           bundle exec jekyll build
-          bundle exec htmlproofer ./_site
+          bundle exec htmlproofer --disable-external=true ./_site
