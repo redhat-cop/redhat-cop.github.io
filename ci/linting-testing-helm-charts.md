@@ -38,7 +38,7 @@ jobs:
 
       - name: Fetch history
         run: git fetch --prune --unshallow
-    
+
       - name: Lint Helm charts
         uses: helm/chart-testing-action@v1.0.0
         with:
@@ -212,6 +212,6 @@ This command will also perform regression testing against the previous version o
 ## Releasing Charts
 The CoP is currently not releasing Helm charts to a chart repository. Projects that use Helm charts are maintaining those charts only under the charts/ folder of their repository. There are options, however, that the CoP can pursue to release charts in the future.
 
-The first option is to release charts to GitHub Pages. This option can be done easily using the [cr (Chart Releaser) tool](https://github.com/helm/chart-releaser). This tool is designed specifically for releasing charts to GitHub Pages and could be an easy way to release charts linted and tested with ct. Chart Releaser also has a GitHub Action, similar to ct, called [helm/chart-releaser-action](https://github.com/helm/chart-releaser-action). The chart-releaser-action could be used after the chart-testing-action in a workflow to ensure that charts are properly tested and versions are changed to avoid publishing changes to an already released version. 
+The first option is to release charts to GitHub Pages. This option can be done easily using the [cr (Chart Releaser) tool](https://github.com/helm/chart-releaser). This tool is designed specifically for releasing charts to GitHub Pages and could be an easy way to release charts linted and tested with ct. Chart Releaser also has a GitHub Action, similar to ct, called [helm/chart-releaser-action](https://github.com/helm/chart-releaser-action). The chart-releaser-action could be used after the chart-testing-action in a workflow to ensure that charts are properly tested and versions are changed to avoid publishing changes to an already released version.
 
 The second option is to publish to a chart repository, such as https://redhat-developer.github.com/redhat-helm-charts. There is currently no tool maintained by Helm that publish to a chart repository other than GitHub Pages, so the CoP would likely need to create a GitHub Action or customized workflow to do this. The steps to release to the redhat-developer repository are listed here - https://github.com/redhat-developer/redhat-helm-charts/wiki/Adding-a-New-Chart.

@@ -100,10 +100,10 @@ Compressing objects: 100% (4/4), done.
 Writing objects: 100% (4/4), 1.04 KiB | 534.00 KiB/s, done.
 Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
 remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
-remote: 
+remote:
 remote: Create a pull request for 'add-readme' on GitHub by visiting:
 remote:      https://github.com/etsauer/redhat-cop.github.io/pull/new/add-readme
-remote: 
+remote:
 To github.com:etsauer/redhat-cop.github.io.git
  * [new branch]      add-readme -> add-readme
 Branch 'add-readme' set up to track remote branch 'add-readme' from 'origin'.

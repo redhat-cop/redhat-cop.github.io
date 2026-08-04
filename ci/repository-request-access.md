@@ -19,7 +19,7 @@ Request for CoP related services can be made by creating a new [GitHub Issue](ht
 * Repository management
 * Team management
 
-All resources will be fulfilled by the CoP tools team and tracked in the corresponding issue. See the sections below on how you can leverage some of the automation tools to streamline the request and management process. 
+All resources will be fulfilled by the CoP tools team and tracked in the corresponding issue. See the sections below on how you can leverage some of the automation tools to streamline the request and management process.
 
 ## Automation Tools
 
@@ -39,7 +39,7 @@ Once the repository has been created, access be managed within the Peribolos [co
 
 The settings for the CoP GitHub organization as a whole including teams, their membership and permissions on repositories are specified in the [config.yaml](https://github.com/redhat-cop/org/blob/master/config.yaml) in the [org](https://github.com/redhat-cop/org). This approach allows for the configuration to be expressed declaratively and automatically applied using the Peribolos tool. In conjunction with Prow, changes are tested and applied whenever they have be merged to the _master_ branch.
 
-The primary use case for which contributors might want to manage this file is to modify the composition of teams and the permissions applied to repositories. While changes can be requested through the issue tracking feature described in earlier sections, the following describes how contributors can submit their own changes through a pull request. This accelerate the time that it takes to have the desired change applied. 
+The primary use case for which contributors might want to manage this file is to modify the composition of teams and the permissions applied to repositories. While changes can be requested through the issue tracking feature described in earlier sections, the following describes how contributors can submit their own changes through a pull request. This accelerate the time that it takes to have the desired change applied.
 
 The general structure for teams and their associated permissions are as follows:
 
@@ -67,14 +67,14 @@ For any requested changes, be sure to follow the steps describe in submitting a 
 
 ----
 **WARNING**
-Given the importance and reliance on automation to manage the CoP, manual modifications (such as team/repository management) should be avoided as it affects the stability of the tooling. 
+Given the importance and reliance on automation to manage the CoP, manual modifications (such as team/repository management) should be avoided as it affects the stability of the tooling.
 ---
 
 ## Quay Management
 
 The [redhat-cop Quay organization](https://quay.io/organization/redhat-cop) contains all of the images produced and managed by the CoP. The configuration for the organization including repositories, teams and robots accounts is declaratively specified in the [all.yml](https://github.com/redhat-cop/org/blob/master/ansible/inventory/group_vars/all.yml) inventory within the [org](https://github.com/redhat-cop/org) repository.
 
-Requested changes, including the creation of new repositories or modification of existing repositories and setting can be facilitated through the issue tracking feature described previously. However, contributors can submit their own pull request against this inventory file with their desired modifications. 
+Requested changes, including the creation of new repositories or modification of existing repositories and setting can be facilitated through the issue tracking feature described previously. However, contributors can submit their own pull request against this inventory file with their desired modifications.
 
 The inventory file is organized as follows:
 

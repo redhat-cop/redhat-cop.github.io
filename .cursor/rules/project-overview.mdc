@@ -1,0 +1,31 @@
+---
+description: Project overview and conventions for redhat-cop.github.io
+alwaysApply: true
+---
+
+# Project Overview
+
+Static documentation site for the [Red Hat Communities of Practice](https://redhat-cop.github.io) (`redhat-cop/redhat-cop.github.io`).
+Publishes contribution guidelines, CoP-specific docs, CI patterns, and a repository map.
+
+Built with **standalone Jekyll 4** on **Ruby 4** (not the `github-pages` gem — that stack requires Ruby `< 4.0`).
+Deployed to GitHub Pages via Actions.
+
+## Tech Stack
+
+- **Ruby:** 4.0+ (see `.ruby-version`; do not use macOS `/usr/bin` Ruby)
+- **Site generator:** Jekyll `~> 4.4`, theme Minima `~> 2.5`
+- **Plugins:** `jekyll-feed`, `jekyll-relative-links`, `jekyll-sitemap`
+- **Serve:** `webrick` (needed on Ruby 3+)
+- **Test:** `html-proofer` (`:test` group)
+- **CI/CD:** GitHub Actions → Pages (`.github/workflows/pages.yml`)
+- **Other automation:** Renovate, pre-commit, OpenSSF Scorecard
+
+## Conventions
+
+- Prefer Markdown (`.md`); keep `README.adoc` for repo docs only (excluded from the site)
+- Pin direct gems with pessimistic versions (`~>` ); keep `Gemfile.lock` committed
+- Do not reintroduce `github-pages` unless dropping Ruby 4
+- Do not commit `_site/`, `.jekyll-cache/`, or `vendor/`
+- When changing Ruby version, update `.ruby-version` (CI reads it via `ruby-version: .ruby-version`)
+- Minima still triggers Sass `@import` deprecations — silenced in `_config.yml` `sass:`
