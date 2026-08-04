@@ -1,0 +1,8 @@
+---
+description: Unbreakable rules
+alwaysApply: true
+---
+
+# Unbreakable Rules
+
+- Do NOT read, consume or touch any files listed in `.gitignore` or `.cursorignore`
