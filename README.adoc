@@ -1,22 +1,122 @@
 = redhat-cop.github.io
 
-image::https://github.com/redhat-cop/redhat-cop.github.io/workflows/build-test-site/badge.svg?branch=master[link="https://github.com/redhat-cop/redhat-cop.github.io/actions?workflow=build-test-site"]
+image::https://github.com/redhat-cop/redhat-cop.github.io/actions/workflows/pages.yml/badge.svg?branch=main[link="https://github.com/redhat-cop/redhat-cop.github.io/actions/workflows/pages.yml"]
 
-Global site for publishing docs and contribution guidelines for the Red Hat Communities of Practice
+Documentation site for the https://redhat-cop.github.io[Red Hat Communities of Practice]: contribution guidelines, CoP-specific content, CI patterns, and a repository map.
 
-== Testing the site
+Live site:: https://redhat-cop.github.io
+Stack:: Jekyll 4 on Ruby 4, deployed to GitHub Pages via Actions
 
-Prerequisites:
+== 1. Repository layout
 
-- link:https://rubygems.org/pages/download[Install Rubygems]
+[cols="1,3",options="header"]
+|===
+| Path | Purpose
+
+| `index.md`
+| Home page
+
+| `repo-map.md`
+| Index of CoP Git repositories (`/repos/`)
+
+| `contrib/`
+| Contribution guidelines (fork/PR workflow)
+
+| `cop/`
+| CoP-specific documentation
+
+| `ci/`
+| Continuous integration guides for redhat-cop repos
+
+| `images/`
+| Screenshots and other static images
+
+| `_config.yml`
+| Site config, plugins, and navigation
+
+| `.github/workflows/pages.yml`
+| Build, test, and deploy workflow
+|===
+
+Content is Markdown (`.md`). This `README.adoc` is for developers working on the repo itself and is not published to the site.
+
+== 2. Prerequisites
+
+. *Ruby 4.0+* (see `.ruby-version`)
++
+On macOS, do *not* use the system Ruby under `/usr/bin`. Install Homebrew Ruby and put it first on your `PATH`:
++
+[source,bash]
+----
+brew install ruby
+echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+ruby -v   # should show 4.x
+----
+
+. *Bundler*
++
+[source,bash]
+----
+gem install bundler
+----
+
+== 3. Run the site locally
 
 [source,bash]
 ----
 git clone git@github.com:redhat-cop/redhat-cop.github.io.git
 cd redhat-cop.github.io
-gem install bundler
 bundle install
 bundle exec jekyll serve
 ----
 
-Once running, the site should be available at http://localhost:4000
+Open http://localhost:4000. Stop the server with `Ctrl+C`.
+
+Useful options:
+
+[source,bash]
+----
+bundle exec jekyll serve --livereload          # auto-reload on file changes
+bundle exec jekyll serve --host 0.0.0.0        # reachable on the local network
+----
+
+== 4. Make a content or site change
+
+. Create a branch from `main`.
+. Edit or add Markdown under the paths listed in *Repository layout* above.
+. Preview with `bundle exec jekyll serve`.
+. Open a pull request against `main`.
+
+New pages pick up the default `page` layout from `_config.yml` unless you set another layout (for example `layout: home` on the homepage).
+
+For contributing to *other* redhat-cop repositories, follow the published guidelines: https://redhat-cop.github.io/contrib/[Contribution Guidelines].
+
+== 5. Validate before you push
+
+`jekyll serve` writes `http://localhost:4000` into `_site`, which fails HTML-Proofer’s HTTPS check. Build in production mode first:
+
+[source,bash]
+----
+JEKYLL_ENV=production bundle exec jekyll build
+bundle exec htmlproofer --disable-external ./_site
+----
+
+To check a `_site` produced by `jekyll serve` without rebuilding:
+
+[source,bash]
+----
+bundle exec htmlproofer --disable-external --no-enforce-https ./_site
+----
+
+== 6. Publishing
+
+CI builds and runs HTML-Proofer on every pull request. Pushes to `main` also deploy to GitHub Pages.
+
+One-time admin setup (repository *Settings → Pages*):
+
+. Under *Build and deployment → Source*, choose *GitHub Actions*.
+
+== 7. Security
+
+See link:SECURITY.md[SECURITY.md]. Report vulnerabilities to the https://github.com/orgs/redhat-cop/teams/redhat-cop-sre[@redhat-cop-sre] team.
