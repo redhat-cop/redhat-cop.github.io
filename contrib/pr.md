@@ -119,7 +119,7 @@ If you did everything right you should see a callout that a new branch has been 
 
 The title is populated with the last commit message. You can change it if you want to.
 
-In the comment box, leave a comment that gives a reviewer the proper ability to review and/or test your changes. It's also a good practice to callout the individuals that you would like to review it. Within the [redhat-cop](https://github.com/redhat-cop) space, we have several teams defined that can be used to call them out.
+In the comment box, leave a comment that gives a reviewer the proper ability to review and/or test your changes. It's also a good practice to callout the individuals that you want to review it. Within the [redhat-cop](https://github.com/redhat-cop) space, we have several teams defined that can be used to call them out.
 
 ![New pull request view]({% link images/github-newpr.png %})
 

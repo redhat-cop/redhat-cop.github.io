@@ -33,7 +33,7 @@ The following guides are available to learn more about this process and start co
 
 ## General Guidence
 
-When making a contribution to the repositories of the Red Hat Communities of Practice, try to utilize the following set of guidelines outlined in this section. Committers should adhere to these practices as they attempt to address many (but not all) of the primary concerns associated with open source repositories and project management:
+When making a contribution to the repositories of the Red Hat Communities of Practice, try to use the following set of guidelines outlined in this section. Committers should adhere to these practices as they attempt to address many (but not all) of the primary concerns associated with open source repositories and project management:
 
 Do:
 
