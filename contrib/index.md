@@ -31,7 +31,7 @@ The following guides are available to learn more about this process and start co
 3. [Testing a Pull Request]({% link contrib/pr-test.md %})
 4. [Opening a Pull Request Against A Pull Request]({% link contrib/pr-against-pr.md %})
 
-## General Guidence
+## General Guidance
 
 When making a contribution to the repositories of the Red Hat Communities of Practice, try to use the following set of guidelines outlined in this section. Committers should adhere to these practices as they attempt to address many (but not all) of the primary concerns associated with open source repositories and project management:
 

@@ -14,7 +14,7 @@ Ct requires a specific file structure to work correctly. CoP projects that use H
 * `charts/`: Contains the Helm chart monorepo
 * `charts/*/ci/`: Contains different values files that ct will test
 * `ct.yaml`: Contains the ct config
-* `lintconf.yaml`: Contains the yamllint config that ct will use to enforce YAML style
+* `lintconf.yaml`: Contains the YAML lint config that ct will use to enforce YAML style
 
 Let's look at these files in further detail and how to configure each of these for CoP projects.
 

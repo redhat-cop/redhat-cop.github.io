@@ -110,7 +110,7 @@ orgs:
       - name: myexample
         visibility: public
         permissions:
-          - name: jdoe
+          - name: joe
             type: user
             role: admin
           - name: myexample
