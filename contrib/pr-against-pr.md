@@ -52,6 +52,6 @@ git push -u origin my-new-pr-branch
 
 Now we can navigate to our fork in GitHub, and select *New Pull Request*. Select the fork you want to merge to (`etsauer`) as the _base fork_ and select YOUR fork and branch as the head fork.
 
-## Done!
+## Done
 
 * [Back to Start]({% link contrib/index.md %})
