@@ -46,7 +46,7 @@ jobs:
           config: ct.yaml
 ```
 
-Note that this workflow is only performing linting. We’ll get to this more after we talk about the rest of the file structure. For now, let’s move on to the chart_schema.yaml file.
+Note that this workflow is only performing linting. We'll get to this more after we talk about the rest of the file structure. For now, let's move on to the chart_schema.yaml file.
 
 ### The `chart_schema.yaml` File
 This file is used to enforce a Chart.yaml schema. Below is the recommended chart_schema.yaml config:
@@ -157,7 +157,7 @@ rules:
 Now that we have reviewed each of the files required for ct, let's explore an example.
 
 ## Example
-For this example, we will look at the [Pelorus repo](https://github.com/konveyor/pelorus). There is a [Makefile](https://github.com/konveyor/pelorus/blob/master/Makefile) with a dedicated target called `chart-lint`. When ct detects chart changes, you’ll see a message similar to the following.
+For this example, we will look at the [Pelorus repo](https://github.com/konveyor/pelorus). There is a [Makefile](https://github.com/konveyor/pelorus/blob/master/Makefile) with a dedicated target called `chart-lint`. When ct detects chart changes, you'll see a message similar to the following.
 
 ```
  Charts to be processed:
@@ -199,7 +199,7 @@ The pipeline is finished once linting is successful.
 ## Live Testing
 In addition to chart linting, ct is also capable of testing your Helm charts in a live Kubernetes/OpenShift cluster. However, the CoP is not performing live testing until we have access to a long-living OpenShift cluster. Once this is complete, this doc will be updated to include guidelines on how you can implement live testing in your project's CI workflow.
 
-For now, you can manually test your charts with ct outside of a GitHub Actions environment. All you need is access to an OpenShift cluster and the “edit” ClusterRole (unless your chart needs to create admin-level resources like Roles and RoleBindings - then you will need “admin”). Then, at the top-level of your project’s repo, run this command:
+For now, you can manually test your charts with ct outside of a GitHub Actions environment. All you need is access to an OpenShift cluster and the “edit” ClusterRole (unless your chart needs to create admin-level resources like Roles and RoleBindings - then you will need “admin”). Then, at the top-level of your project's repo, run this command:
 
 ```bash
 ct install --upgrade --namespace=$OCP_PROJECT
