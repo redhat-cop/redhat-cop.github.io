@@ -73,7 +73,19 @@ jobs:
       - name: Build with Jekyll
         env:
           JEKYLL_ENV: production
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        # Fall back to "/" when base_path is empty so PowerShell does not drop the --baseurl argument
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path || '/' }}"
+
+      - name: Install libcurl (Windows)
+        if: runner.os == 'Windows'
+        shell: bash
+        # MSYS2 provides libcurl-4.dll; ethon only loads libcurl.dll.
+        # Pattern from https://github.com/mitre/cyber-trackr-live/commit/cd91c3f
+        run: |
+          pacman -S --noconfirm mingw-w64-ucrt-x86_64-curl
+          cp /ucrt64/bin/libcurl-4.dll /ucrt64/bin/libcurl.dll
+          cp /ucrt64/bin/libcurl-4.dll /c/Windows/System32/libcurl.dll
+          echo "$(cygpath -w /ucrt64/bin)" >> "$GITHUB_PATH"
 
       - name: Validate HTML
         run: bundle exec htmlproofer --disable-external ./_site
