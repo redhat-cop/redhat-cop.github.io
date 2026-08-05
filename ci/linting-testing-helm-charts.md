@@ -2,7 +2,7 @@
 title: Linting and Testing Helm Charts
 ---
 
-Helm charts benefit greatly from CI and can be continuously linted and tested in a pipeline using [ct](https://github.com/helm/chart-testing). Ct (or Chart Testing) is a tool for linting and testing Helm charts in a monorepo. It uses git behind the scenes to test only modified charts to avoid lengthy build times. It also enforces SemVer and requires users to increment the version of modified charts to avoid publishing changes to a previously released version.
+Helm charts benefit greatly from CI and can be continuously linted and tested in a pipeline by using [ct](https://github.com/helm/chart-testing). Ct (or Chart Testing) is a tool for linting and testing Helm charts in a monorepo. It uses git behind the scenes to test only modified charts to avoid lengthy build times. It also enforces SemVer and requires users to increment the version of modified charts to avoid publishing changes to a previously released version.
 
 In this article, we'll look at how the CoP currently performs CI of Helm charts with ct. Afterward, we'll look at how this process can be improved and where it is going.
 
@@ -88,7 +88,7 @@ charts/
 The name of each folder under charts/ should be the same as the name field in the Chart.yaml file.
 
 ### The `charts/*/ci/` Folder
-This folder is for testing different values files during the CI process. These values merge with the chart's values.yaml file and applied to ensure that different combinations of values still result in a successful chart installation across changes. You can create as many values files as you want under this folder using whatever filename you think is necessary to represent the test case. Here's an example:
+This folder is for testing different values files during the CI process. These values merge with the chart's values.yaml file and applied to ensure that different combinations of values still result in a successful chart installation across changes. You can create as many values files as you want under this folder by using whatever filename you think is necessary to represent the test case. Here's an example:
 
 ```
 charts/my-chart/ci/nodeport-values.yaml
