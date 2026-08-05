@@ -7,3 +7,8 @@ vendor/
 .bundle/
 
 Gemfile.lock
+
+# Vale package styles (restored by `vale sync` / vale-action)
+.github/styles/*
+!.github/styles/config/
+!.github/styles/config/**

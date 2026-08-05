@@ -26,7 +26,7 @@ All resources will be fulfilled by the CoP tools team and tracked in the corresp
 To emphasize the use of Infrastructure as Code (IaC) concepts, several tools have been employed to management GitHub and Quay assets.
 
 * [Prow](https://github.com/kubernetes/test-infra/tree/master/prow) - Kubernetes based CI/CD system
-* [Peribolos](https://github.com/kubernetes/test-infra/tree/master/prow/cmd/peribolos) - Management of GitHub organization settings, teams and management in a declarative fashion.
+* [Peribolos](https://github.com/kubernetes-sigs/prow/tree/main/cmd/peribolos) - Management of GitHub organization settings, teams and management in a declarative fashion.
 * [Ansible Quay Role](https://github.com/redhat-cop/infra-ansible/tree/master/roles/scm/quay) - Management of Quay resources including repositories, teams and permissions
 
 ## Repository Management
