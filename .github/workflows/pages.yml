@@ -73,7 +73,15 @@ jobs:
       - name: Build with Jekyll
         env:
           JEKYLL_ENV: production
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        # Fall back to "/" when base_path is empty so PowerShell does not drop the --baseurl argument
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path || '/' }}"
+
+      - name: Install libcurl (Windows)
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          pacman -S --noconfirm mingw-w64-ucrt-x86_64-curl
+          echo "$(cygpath -w /ucrt64/bin)" >> "$GITHUB_PATH"
 
       - name: Validate HTML
         run: bundle exec htmlproofer --disable-external ./_site
