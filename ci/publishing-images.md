@@ -66,7 +66,7 @@ jobs:
 
 The above also requires a `version.json` file in the directory of your code. The content is very simple, `{"version":"v1.0.0"}` and will be used to tag the image. With this file you can tag your image independently of tags on the repository. This can be convenient when you are building multiple images from the same repo, such as containers-quickstarts.
 
-From there, you can follow our [standard Pull Request](/contrib/) process to get your workflow added to the repo.
+From there, you can follow our [standard Pull Request]({% link contrib/index.md %}) process to get your workflow added to the repo.
 
 >:mag: **NOTE**<br />
 >For security purposes, GitHub does not make secrets accessible to forked repositories. It will therefore not be possible to test workflow code in the context of a Pull Request if the workflow uses secrets. However, you can test the workflow in your own fork by creating the necessary secrets in your forked repo pointing to your own personal registry.
@@ -109,4 +109,4 @@ jobs:
           docker run ${image_name}:${{ steps.check_version.outputs.IMAGE_TAGS }} 'version'
 ```
 
-From there, you can follow our [standard Pull Request](/contrib/) process to get your workflow added to the repo.
+From there, you can follow our [standard Pull Request]({% link contrib/index.md %}) process to get your workflow added to the repo.

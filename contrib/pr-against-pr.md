@@ -54,4 +54,4 @@ Now we can navigate to our fork in GitHub, and select *New Pull Request*. Select
 
 ## Done!
 
-* [Back to Start](./index.html)
+* [Back to Start]({% link contrib/index.md %})

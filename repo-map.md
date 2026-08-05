@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Index of CoP Git Repositories
 permalink: /repos/
 ---

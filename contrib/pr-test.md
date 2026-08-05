@@ -49,4 +49,4 @@ git rebase oybed/docker-39
 
 ## Next
 
-* [Contributing to an Open Pull Request](./pr-against-pr.html)
+* [Contributing to an Open Pull Request]({% link contrib/pr-against-pr.md %})

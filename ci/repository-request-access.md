@@ -63,12 +63,13 @@ orgs:
           ...
 ```
 
-For any requested changes, be sure to follow the steps describe in submitting a [pull request](../contrib/pr.md).
+For any requested changes, be sure to follow the steps describe in submitting a [pull request]({% link contrib/pr.md %}).
 
 ----
 **WARNING**
 Given the importance and reliance on automation to manage the CoP, manual modifications (such as team/repository management) should be avoided as it affects the stability of the tooling.
----
+
+----
 
 ## Quay Management
 
@@ -123,7 +124,7 @@ orgs:
     ...
 ```
 
-When complete, submit a new Pull Request against the repository as described in submitting a [pull request](../contrib/pr.md).
+When complete, submit a new Pull Request against the repository as described in submitting a [pull request]({% link contrib/pr.md %}).
 
 ## Ansible Galaxy
 

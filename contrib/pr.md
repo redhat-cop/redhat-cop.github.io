@@ -113,7 +113,7 @@ Branch 'add-readme' set up to track remote branch 'add-readme' from 'origin'.
 
 Now, we go to GitHub. (the main repo, not your fork)
 
-![New branch view](/images/github-newbranch-ss.png)
+![New branch view]({% link images/github-newbranch-ss.png %})
 
 If you did everything right you should see a callout that a new branch has been pushed to a forked repo, with a prompt to **Compare & pull request**. Clicking that button will open the new Pull Request view.
 
@@ -121,7 +121,7 @@ The title is populated with the last commit message. You can change it if you wa
 
 In the comment box, leave a comment that gives a reviewer the proper ability to review and/or test your changes. It's also a good practice to callout the individuals that you would like to review it. Within the [redhat-cop](https://github.com/redhat-cop) space, we have several teams defined that can be used to call them out.
 
-![New pull request view](/images/github-newpr.png)
+![New pull request view]({% link images/github-newpr.png %})
 
 Now click **Create pull request**, and your pull request is Created!
 
@@ -204,7 +204,7 @@ Your Pull Request will now be updated with the additional changes you've made, a
 
 If a pull request stays open for long enough, or a repository has multiple pull requests being opened and reviewed at a time, it is highly likely that another change being merged will result in your PR having merge conflicts with the updated master branch.
 
-![Merge Conflicts in a Pull Request](/images/pr-conflict.png)
+![Merge Conflicts in a Pull Request]({% link images/pr-conflict.png %})
 
 When this happens, you will need to resolve this conflict by updating your branch with the latest changes to the main branch. This can be done via a _rebase_. A rebase looks like this.
 
@@ -232,4 +232,4 @@ Now check `git status` again. In many cases this will resolve your issue, and if
 
 ## Next
 
-* [Reviewing a Pull Request](./pr-test.html)
+* [Reviewing a Pull Request]({% link contrib/pr-test.md %})

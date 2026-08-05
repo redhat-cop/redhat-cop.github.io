@@ -67,4 +67,4 @@ git push
 
 ## Next
 
-* [Opening a Pull Request](pr.html)
+* [Opening a Pull Request]({% link contrib/pr.md %})

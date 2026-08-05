@@ -6,7 +6,7 @@ This wiki site outlines the workflows for contributing to our various Community 
 
 **Site Contents**
 
-* [Red Hat CoP Repository Map](./repos/)
-* [Repository Contribution Guidelines](./contrib/)
-* [Red Hat CoP Specific Content](./cop/)
-* [How to implement continuous integration for redhat-cop repositories](./ci/)
+* [Red Hat CoP Repository Map]({% link repo-map.md %})
+* [Repository Contribution Guidelines]({% link contrib/index.md %})
+* [Red Hat CoP Specific Content]({% link cop/index.md %})
+* [How to implement continuous integration for redhat-cop repositories]({% link ci/index.md %})

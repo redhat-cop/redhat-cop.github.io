@@ -1,7 +1,5 @@
 ---
-layout: page
 title: Contribution Guidelines
-permalink: /contrib/
 ---
 
 Contributions from the community play an important role in the assets associated with the Red Hat Communities of Practice (CoP). One of these sources of content is through source code repositories hosted on GitHub within the [redhat-cop](https://github.com/redhat-cop) organization. These repositories have a direct relationship to one or more tracks within a CoP or across multiple CoP’s and help drive the overall mission of the CoP program.
@@ -28,10 +26,10 @@ While there are multiple development styles, the Red Hat Communities of Practice
 
 The following guides are available to learn more about this process and start contributing:
 
-1. [Local Setup](./local-setup.html)
-2. [Contributing Code (Opening a Pull Request)](./pr.html)
-3. [Testing a Pull Request](./pr-test.html)
-4. [Opening a Pull Request Against A Pull Request](./pr-against-pr.html)
+1. [Local Setup]({% link contrib/local-setup.md %})
+2. [Contributing Code (Opening a Pull Request)]({% link contrib/pr.md %})
+3. [Testing a Pull Request]({% link contrib/pr-test.md %})
+4. [Opening a Pull Request Against A Pull Request]({% link contrib/pr-against-pr.md %})
 
 ## General Guidence
 
