@@ -30,7 +30,7 @@ repos:
     hooks:
       - id: gitleaks
   - repo: https://github.com/vale-cli/vale
-    rev: v3.17.0
+    rev: v3.17.1
     hooks:
       - id: vale
         name: vale sync
